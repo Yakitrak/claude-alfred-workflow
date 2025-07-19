@@ -1,10 +1,12 @@
 # Open in Claude
 
+![](./example-doc.jpeg)
+
 This is a simple Alfred workflow that allows you to open a given prompt in Claude Mac app
 
 ## Prerequisites
 
-- Alfred 4 or later
+- Alfred 5
 - Claude Mac app installed
 
 ## Installation
