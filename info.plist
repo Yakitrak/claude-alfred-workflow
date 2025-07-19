@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.alfredapp.yakitrak</string>
+	<key>connections</key>
+	<dict>
+		<key>DCC8DAC5-2E8E-498D-B14C-2C21F438371D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FA171CC4-22AD-41AE-A5BC-B3E6A6F25BAF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Kartikay Jainwal</string>
+	<key>description</key>
+	<string></string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Open in Claude</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>on run argv
+	try
+		if (count of argv) = 0 then return "No prompt provided"
+		set userPrompt to item 1 of argv
+		
+		-- Launch and focus Claude
+		tell application "Claude"
+			activate
+			-- Wait for app to be frontmost
+			repeat while not frontmost
+				delay 0.1
+			end repeat
+		end tell
+		
+		-- Execute commands
+		tell application "System Events"
+			keystroke "n" using {command down}
+			delay 0.3
+			keystroke userPrompt
+			keystroke return
+		end tell
+		
+	on error errMsg
+		return "Error: " &amp; errMsg
+	end try
+end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>FA171CC4-22AD-41AE-A5BC-B3E6A6F25BAF</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>claude</string>
+				<key>subtext</key>
+				<string>Enter prompt...</string>
+				<key>text</key>
+				<string>Claude Open</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>DCC8DAC5-2E8E-498D-B14C-2C21F438371D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>DCC8DAC5-2E8E-498D-B14C-2C21F438371D</key>
+		<dict>
+			<key>xpos</key>
+			<real>90</real>
+			<key>ypos</key>
+			<real>205</real>
+		</dict>
+		<key>FA171CC4-22AD-41AE-A5BC-B3E6A6F25BAF</key>
+		<dict>
+			<key>xpos</key>
+			<real>300</real>
+			<key>ypos</key>
+			<real>200</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>webaddress</key>
+	<string>https://github.com/Yakitrak</string>
+</dict>
+</plist>
